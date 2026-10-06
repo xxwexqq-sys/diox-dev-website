@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 
@@ -7,15 +9,15 @@ const extras = ['Логи', 'Панель управления', 'База да�
 
 const basePrices: Record<string, number> = {
   'Семейный бот': 750,
-  Организация: 950,
+  'Организация': 950,
   'GTA 5 RP': 1200,
   'Бот на заказ': 1500,
 };
 
 const complexityMultiplier: Record<string, number> = {
-  Базовая: 1,
-  Средняя: 1.45,
-  Продвинутая: 2.1,
+  'Базовая': 1,
+  'Средняя': 1.45,
+  'Продвинутая': 2.1,
 };
 
 export function Calculator() {
@@ -93,7 +95,7 @@ export function Calculator() {
               <h3 className="mb-3 text-sm uppercase tracking-[0.18em] text-zinc-400">Дополнительные функции</h3>
               <div className="grid gap-3 sm:grid-cols-2">
                 {extras.map((item) => (
-                  <label key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-300">
+                  <label key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-300 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={selectedExtras.includes(item)}
