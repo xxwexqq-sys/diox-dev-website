@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #050505;
+  --panel: #0d0d0f;
+  --soft: #111114;
+  --border: rgba(255,255,255,0.08);
+  --muted: #a1a1aa;
+  --accent: #7c3aed;
+  --accent-2: #a78bfa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.18), transparent 26%),
+    linear-gradient(180deg, #050505 0%, #080808 100%);
+  color: white;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.5);
+  color: white;
+}
+
+.container-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.panel {
+  background: rgba(13, 13, 15, 0.7);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.18), 0 0 40px rgba(124, 58, 237, 0.18);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #f8f8ff 0%, #c7b7ff 28%, #a78bfa 52%, #d8d1ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  inset: -100% auto auto -40%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: rotate(18deg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-shine:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container-shell {
+    width: min(100% - 20px, 1200px);
+  }
+}
